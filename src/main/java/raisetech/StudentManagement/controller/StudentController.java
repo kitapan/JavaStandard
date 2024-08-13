@@ -45,9 +45,8 @@ public class StudentController {
    */
   @Operation(summary = "一覧検索", description = "受講生の一覧を検索します。")
   @GetMapping("/studentList")
-  public List<StudentDetail> getStudentList() throws TestException {
-    throw new TestException(
-        "現在のこのAPIは利用できません。URLは『studentList』ではなく「students」を利用してください。");
+  public List<StudentDetail> getStudentList() {
+    return service.searchStudentList();
   }
 
   /**
@@ -99,7 +98,7 @@ public class StudentController {
   }
 
   @ExceptionHandler(TestException.class)
-  public ResponseEntity<String> handleTestException(TestException ex){
+  public ResponseEntity<String> handleTestException(TestException ex) {
     return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
   }
 }
