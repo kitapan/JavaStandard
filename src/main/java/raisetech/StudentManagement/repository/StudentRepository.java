@@ -53,7 +53,7 @@ public interface StudentRepository {
    *
    * @param student 受講生
    */
-  void registerStudent(@Param("student") Student student);
+  void registerStudent(Student student);
 
   /**
    * 受講生コース情報を新規登録します。IDに関しては自動採番を行う。
